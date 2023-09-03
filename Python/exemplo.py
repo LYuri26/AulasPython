@@ -13,7 +13,7 @@ dados = {
 df = pd.DataFrame(dados)
 
 # Calcular a diferença percentual nas vendas entre 2019 e 2020
-df['Diff_Pct'] = (df['Vendas_2020'] - df['Vendas_2019']) / df['Vendas_2019'] * 100
+df['Diferenca_Pct'] = (df['Vendas_2020'] - df['Vendas_2019']) / df['Vendas_2019'] * 100
 
 # Gerar um gráfico de barras para comparar as vendas de produtos em 2019 e 2020
 plt.figure(figsize=(8, 5))
@@ -27,7 +27,7 @@ plt.show()
 
 # Gerar um gráfico de linha para visualizar a diferença percentual nas vendas
 plt.figure(figsize=(8, 5))
-plt.plot(df['Produto'], df['Diff_Pct'], marker='o')
+plt.plot(df['Produto'], df['Diferenca_Pct'], marker='o')
 plt.xlabel('Produto')
 plt.ylabel('Diferença Percentual nas Vendas')
 plt.title('Diferença Percentual nas Vendas de Produtos entre 2019 e 2020')
