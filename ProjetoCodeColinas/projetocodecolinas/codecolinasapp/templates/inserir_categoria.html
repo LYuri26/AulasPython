@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Criar Pedido</title>
+    <title>Inserir Categoria</title>
 </head>
 <body>
 
-<h1>Criar Pedido</h1>
+<h1>Inserir Nova Categoria</h1>
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Criar Pedido</button>
+    <input type="submit" value="Inserir Categoria">
 </form>
 
 </body>

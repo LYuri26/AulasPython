@@ -10,7 +10,6 @@ class Categoria(models.Model):
 
 class Produto(models.Model):
     nome = models.CharField(max_length=100)
-    descricao = models.TextField(default='Descrição padrão')
     preco = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     categoria = models.ForeignKey(
         Categoria, on_delete=models.CASCADE, default=0)

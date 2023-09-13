@@ -14,13 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from codecolinasapp import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('produtos/', views.lista_produtos, name='lista_produtos'),
-    path('', views.lista_produtos, name='lista_produtos'), # Adicionando a rota para a raiz
     path('criar_pedido/', views.criar_pedido, name='criar_pedido'),
+    # Adicionando a rota para a raiz
+    path('', views.lista_produtos, name='lista_produtos'),
+    path('inserir_produto/', views.criar_produto, name='inserir_produto'),
+    path('inserir_categoria/', views.inserir_categoria, name='inserir_categoria'),
+
 ]

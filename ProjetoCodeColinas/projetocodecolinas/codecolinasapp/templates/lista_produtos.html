@@ -13,5 +13,19 @@
     {% endfor %}
 </ul>
 
+<h2>Inserir Novo Produto:</h2>
+<form method="post" action="{% url 'inserir_produto' %}">
+    {% csrf_token %}
+    Nome: <input type="text" name="nome"><br>
+    Preço: <input type="text" name="preco"><br>
+    Categoria: 
+    <select name="categoria">
+        {% for categoria in categorias %}
+            <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+        {% endfor %}
+    </select><br>
+    <input type="submit" value="Inserir Produto">
+</form>
+
 </body>
 </html>
