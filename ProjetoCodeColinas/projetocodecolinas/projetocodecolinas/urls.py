@@ -21,6 +21,6 @@ from codecolinasapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('produtos/', views.lista_produtos, name='lista_produtos'),
-    # Adicione esta linha para a raiz
-    path('', views.lista_produtos, name='lista_produtos'),
+    path('', views.lista_produtos, name='lista_produtos'), # Adicionando a rota para a raiz
+    path('criar_pedido/', views.criar_pedido, name='criar_pedido'),
 ]

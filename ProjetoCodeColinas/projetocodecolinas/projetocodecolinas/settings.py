@@ -76,8 +76,17 @@ WSGI_APPLICATION = 'projetocodecolinas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        # Substitua pelo nome do seu banco de dados
+        'NAME': 'CodeColinas',
+        'USER': 'root',  # Pode variar dependendo da configuração do seu MySQL no XAMPP
+        'PASSWORD': '',  # Deixe vazio se você não configurou uma senha para o MySQL no XAMPP
+        'HOST': 'localhost',
+        'PORT': '3306',  # Porta padrão do MySQL
+        'OPTIONS': {
+            # Caminho do socket para o MySQL no XAMPP
+            'unix_socket': '/opt/lampp/var/mysql/mysql.sock',
+        },
     }
 }
 
