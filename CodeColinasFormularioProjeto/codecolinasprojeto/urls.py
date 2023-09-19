@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from appcodecolinas import views
+from django.urls import path
+from appcodecolinas.views import cadastrocliente
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cadastro/', views.cadastrocliente, name='cadastrocliente'),
     path('processarcadastro/', views.processarcadastro, name='processarcadastro'),
+    path('', cadastrocliente, name='home'),
+    
 ]
