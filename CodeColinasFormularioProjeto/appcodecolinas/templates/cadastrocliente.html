@@ -9,8 +9,8 @@
     <h1>Cadastro de Cliente</h1>
 
     <!-- Início do formulário de cadastro -->
-    <form action="{% url 'cadastrocliente' %}" method="post">
-      {% csrf_token %} <!-- Token CSRF - Evita ataques de Cross-Site Request Forgery -->
+    <form action="{% url 'processarcadastro' %}" method="post">
+      {% csrf_token %}
 
       <!-- Campo de Nome -->
       <label for="nome">Nome:</label>
