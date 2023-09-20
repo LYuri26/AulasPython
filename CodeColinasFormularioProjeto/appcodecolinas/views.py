@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def cadastrocliente(request):
     return render(request, 'cadastrocliente.html')
@@ -16,3 +16,6 @@ def processarcadastro(request):
 
         # E então redirecionar para uma página de confirmação ou outra página
         return render(request, 'confirmacaocadastro.html')
+
+def index(request):
+    return render(request,'index.html')
