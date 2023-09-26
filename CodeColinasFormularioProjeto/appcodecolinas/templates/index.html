@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulário de Cadastro de Clientes</title>
-  </head>
-  <body>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'appcodecolinas/estiloindex.css' %}">
+</head>
+<body>
     <h1>Formulário de Cadastro de Clientes</h1>
     <h2>SENAI-MG Uberaba CodeColinas</h2>
 
-    <!-- Adicione aqui qualquer outro conteúdo que desejar -->
-    <a href="{% url 'cadastrocliente' %}">Acessar Cadastro</a>
-  </body>
+    <div class="container">
+        <a href="{% url 'cadastrocliente' %}" class="btn">Acessar Cadastro</a>
+    </div>
+</body>
 </html>
