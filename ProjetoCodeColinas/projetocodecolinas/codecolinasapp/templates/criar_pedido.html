@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Criar Pedido</title>
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="/static/codecolinasapp/css/estilos.css" />
+  </head>
+  <body>
+    <h1>Criar Pedido</h1>
 
-<h1>Criar Pedido</h1>
-
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Criar Pedido</button>
-</form>
-
-</body>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Criar Pedido</button>
+    </form>
+  </body>
 </html>

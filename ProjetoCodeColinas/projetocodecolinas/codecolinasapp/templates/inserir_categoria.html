@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Inserir Categoria</title>
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="/static/codecolinasapp/css/estilos.css" />
+  </head>
+  <body>
+    <h1>Inserir Nova Categoria</h1>
 
-<h1>Inserir Nova Categoria</h1>
-
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Inserir Categoria">
-</form>
-
-</body>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Inserir Categoria" />
+    </form>
+  </body>
 </html>
