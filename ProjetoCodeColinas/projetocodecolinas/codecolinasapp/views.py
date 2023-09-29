@@ -12,7 +12,7 @@ def lista_produtos(request):
         if produto_form.is_valid():
             produto_form.save()
             return redirect('lista_produtos')
-    return render(request, 'lista_produtos.html', {'produtos': produtos, 'categorias': categorias, 'produto_form': produto_form, 'categoria_form': categoria_form})
+    return render(request, 'codecolinasapp/lista_produtos.html', {'produtos': produtos, 'categorias': categorias, 'produto_form': produto_form, 'categoria_form': categoria_form})
 
 
 def criar_pedido(request):
@@ -22,7 +22,7 @@ def criar_pedido(request):
         if form.is_valid():
             form.save()
             return redirect('lista_produtos')
-    return render(request, 'criar_pedido.html', {'form': form})
+    return render(request, 'codecolinasapp/criar_pedido.html', {'form': form})
 
 
 def criar_produto(request):
@@ -41,4 +41,4 @@ def inserir_categoria(request):
             form.save()
             # Substitua pelo nome da view de listagem de produtos
             return redirect('lista_produtos')
-    return render(request, 'inserir_categoria.html', {'form': form})
+    return render(request, 'codecolinasapp/inserir_categoria.html', {'form': form})

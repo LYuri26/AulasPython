@@ -1,6 +1,5 @@
 from django import forms
 from .models import Pedido, Produto, Categoria
-
 class CategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria
@@ -19,16 +18,13 @@ class ProdutoForm(forms.ModelForm):
         required=False,
         label='Nova Categoria'
     )
-
     class Meta:
         model = Produto
         fields = ['nome', 'preco', 'categoria']
-
     def clean(self):
         cleaned_data = super().clean()
         categoria_existente = cleaned_data.get('categoria')
         nova_categoria = cleaned_data.get('nova_categoria')
-
         if not (categoria_existente or nova_categoria):
             raise forms.ValidationError(
                 'Por favor, selecione uma categoria existente ou insira uma nova.'
