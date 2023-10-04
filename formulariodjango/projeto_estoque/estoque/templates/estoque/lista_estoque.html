@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lista de Itens em Estoque</title>
+</head>
+<body>
+	<h1>Lista de Itens em Estoque</h1>
+	<ul>
+    	{% for item in itens %}
+        	<li>
+            	{{ item.nome }} - {{ item.descricao }} ({{ item.quantidade_disponivel }} disponíveis)
+        	</li>
+    	{% endfor %}
+	</ul>
+	<a href="{% url 'adicionar_item' %}">Adicionar Novo Item</a>
+</body>
+</html>
