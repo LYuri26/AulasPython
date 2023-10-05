@@ -1,0 +1,44 @@
+<!-- projeto_estoque/estoque/templates/estoque/confirmar_exclusao_item.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Exclusão</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'estoque/css/estoque.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirmar Exclusão</h1>
+
+        <p>
+            Tem certeza de que deseja excluir o item? Esta ação não pode ser desfeita.
+        </p>
+
+        <!-- Cria um formulário com o método de envio POST -->
+        <form action="{% url 'excluir_item' item.id %}" method="post">
+            <!-- Adiciona um token CSRF para proteção contra CSRF -->
+            {% csrf_token %}
+
+            <!-- Cria um botão de submissão do formulário -->
+            <button class="button" type="submit">Confirmar</button>
+
+            <!-- Cria um link para a página de lista de estoque -->
+            <a class="button" href="{% url 'lista_estoque' %}">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
+
+<!--Este é um arquivo HTML para a página de confirmação de exclusão de um item do estoque. 
+Ele contém tags HTML para criar a estrutura da página. O título da página é definido com 
+<title>Confirmar Exclusão</title>. Há um cabeçalho <h1>Confirmar Exclusão</h1> e 
+um parágrafo de texto <p> que informa ao usuário sobre a ação que está prestes a realizar.
+
+Em seguida, é criado um formulário <form> com o método POST. Dentro do formulário, é 
+adicionado um token CSRF {% csrf_token %} para proteção contra CSRF. 
+Um botão de confirmação <button type="submit">Confirmar</button> é fornecido para 
+permitir ao usuário confirmar a exclusão. Além disso, um link <a> é adicionado par
+a permitir ao usuário cancelar a ação e retornar à lista de estoque.-->
