@@ -88,6 +88,10 @@ DATABASES = {
         "PASSWORD": "",  # Senha do MySQL
         "HOST": "localhost",  # Endereço do servidor MySQL (geralmente localhost)
         "PORT": "3306",  # Porta do servidor MySQL (geralmente 3306)
+        'OPTIONS': {
+            # Caminho do socket para o MySQL no XAMPP
+            'unix_socket': '/opt/lampp/var/mysql/mysql.sock',
+        },
     }
 }
 
