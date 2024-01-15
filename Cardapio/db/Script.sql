@@ -106,5 +106,6 @@ CREATE TABLE IF NOT EXISTS pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     data_pedido DATE NOT NULL,
     horario_pedido TIME NOT NULL,
-    valor_pedido DECIMAL(8, 2) NOT NULL
+    valor_pedido DECIMAL(8, 2) NOT NULL,
+    itens_do_pedido TEXT
 );
