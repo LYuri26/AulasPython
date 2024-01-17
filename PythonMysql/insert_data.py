@@ -3,7 +3,7 @@ import mysql.connector
 
 def insert_data_into_table(data):
     try:
-        # Conectar ao MySQL (certifique-se de fornecer suas próprias credenciais)
+        # Conectar ao MySQL
         connection = mysql.connector.connect(
             host="localhost",
             user="root",
@@ -11,11 +11,14 @@ def insert_data_into_table(data):
             database="academia"
         )
 
+        # Ajustar dados antes de inserir
+        data = adjust_data(data)
+
         # Inserir dados na tabela
         cursor = connection.cursor()
         cursor.execute("""
             INSERT INTO Academia 
-            (exercise_name, repetitions, sets, muscle_activation, load_speed, rest, notes, substitute_exercise) 
+            (nome_do_exercicio, repeticoes, series, ativacao_muscular, carga_velocidade, descanso, anotacoes, exercicio_substituto) 
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """, data)
 
@@ -26,8 +29,22 @@ def insert_data_into_table(data):
         raise err
 
 
-if __name__ == "__main__":
-    # Exemplo de uso para testar a inserção de dados
-    sample_data = ("Agachamento", 10, 3, "Quadríceps", "80kg",
-                   "2min", "Anotações de teste", "Leg press")
-    insert_data_into_table(sample_data)
+def adjust_data(data):
+    # Ajustar dados conforme necessário
+    nome_do_exercicio, repeticoes, series, ativacao_muscular, carga_velocidade, descanso, anotacoes, exercicio_substituto = data
+
+    # Verificar e ajustar anotações
+    if not anotacoes:
+        anotacoes = "Sem anotações."
+
+    # Converter descanso para formato desejado
+    descanso = descanso.strip() if descanso else None
+    if descanso is not None and descanso.isdigit():
+        descanso = f"{descanso} segundos."
+
+    # Garantir que repetições, vezes de repetições e descanso sejam inteiros
+    repeticoes = int(
+        repeticoes) if repeticoes and repeticoes.isdigit() else None
+    series = int(series) if series and series.isdigit() else None
+
+    return (nome_do_exercicio, repeticoes, series, ativacao_muscular, carga_velocidade, descanso, anotacoes, exercicio_substituto)

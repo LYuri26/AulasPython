@@ -5,9 +5,9 @@ def create_database_and_table():
     try:
         # Conectar ao MySQL (certifique-se de fornecer suas próprias credenciais)
         connection = mysql.connector.connect(
-            host="seu_host",
-            user="seu_usuario",
-            password="sua_senha"
+            host="localhost",
+            user="root",
+            password=""
         )
 
         # Criar o banco de dados se não existir
@@ -19,14 +19,14 @@ def create_database_and_table():
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS Academia (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                exercise_name VARCHAR(255),
-                repetitions INT,
-                sets INT,
-                muscle_activation VARCHAR(255),
-                load_speed VARCHAR(255),
-                rest VARCHAR(255),
-                notes TEXT,
-                substitute_exercise VARCHAR(255)
+                nome_do_exercicio VARCHAR(255),
+                repeticoes INT,
+                series INT,
+                ativacao_muscular VARCHAR(255),
+                carga_velocidade VARCHAR(255),
+                descanso VARCHAR(255),
+                anotacoes TEXT,
+                exercicio_substituto VARCHAR(255)
             )
         """)
 
